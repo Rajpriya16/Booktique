@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return Book</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #080710;
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .background {
+            width: 430px;
+            height: 520px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+        .background .shape {
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .shape:first-child {
+            background: linear-gradient(90deg, rgb(245, 157, 157) 0%, rgb(206, 157, 245) 100%);
+            left: -80px;
+            top: -80px;
+        }
+        .shape:last-child {
+            background: linear-gradient(90deg, rgb(206, 157, 245) 0%, rgb(245, 157, 157) 100%);
+            right: -30px;
+            bottom: -80px;
+        }
+        .container {
+            width: 400px;
+            background-color: rgba(255, 255, 255, 0.13);
+            padding: 40px 35px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+            position: relative;
+            z-index: 1;
+        }
+        .container h1 {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        form * {
+            font-family: 'Poppins', sans-serif;
+            color: #ffffff;
+            outline: none;
+            border: none;
+        }
+        form label {
+            font-size: 16px;
+            font-weight: 500;
+            margin-top: 15px;
+        }
+        form input {
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        button {
+            margin-top: 30px;
+            width: 100%;
+            background: linear-gradient(90deg, rgb(245, 157, 157) 0%, rgb(206, 157, 245) 100%);
+            color: #080710;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .fs-5 {
+            margin-top: 20px;
+            font-size: 1.25rem;
+            color: #ffffff;
+            display: block;
+            text-align: center;
+        }
+        .btn-return {
+            display: block;
+            margin-top: 20px;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.27);
+            color: #eaf0fb;
+            border-radius: 5px;
+        }
+        .btn-return:hover {
+            background-color: rgba(255, 255, 255, 0.47);
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <div class="container">
+        <h1>Return Book</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            {% if return_message %}
+                <p style="color: white; text-align: center;">{{ return_message }}</p>
+            {% endif %}
+
+            <button type="submit">Return Book</button>
+
+            {% if fine is not None %}
+                {% if fine > 0 %}
+                    <span class="fs-5 text-danger">Fine to be paid: ₹{{ fine }}</span>
+                {% else %}
+                    <span class="fs-5 text-success">No fine to be paid.</span>
+                {% endif %}
+            {% endif %}
+        </form>
+
+        <a href="{% url 'home' %}" class="btn-return">Return to Home Page</a>
+    </div>
+</body>
+</html>

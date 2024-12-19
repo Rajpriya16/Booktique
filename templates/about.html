@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Booktique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style= "background: rgb(243, 231, 250)">
+    
+    {% include "navbar.html" %}
+    {% include "carousel.html" %}
+
+    <div class="container my-5" style=" background: #ffcbcb">
+        <h1 class="text-center mb-4">About Our Library</h1>
+        <p class="lead text-center">
+            Welcome to our library! We are dedicated to providing a wide selection of books across various genres, ensuring that readers of all ages and interests can find something they love.
+        </p>
+        
+        <p class="text-center">
+            Whether you're a student, a researcher, or simply an avid reader, our library offers a quiet, resourceful space to explore knowledge. Users can borrow books for free for a period of 14 days. If you need more time, we encourage you to return the book on time and reissue it if available.
+        </p>
+
+        <p class="text-center text-danger fw-bold">
+            Please note: A fine of ₹50 per day will be charged for late returns after the 14-day period. This ensures fair access to our collection for all users.
+        </p>
+
+        <p class="text-center">
+            Our mission is to promote learning and a love of reading within the community. We also host reading events and provide resources to help with research, academic work, and more. 
+        </p>
+        
+        <p class="text-center">
+            Visit us to discover our latest arrivals, join our book clubs, or just relax with a good book.
+        </p>
+
+        <div class="text-center">
+            <h3 class="my-4">We look forward to seeing you soon!</h3>
+        </div>
+    </div>
+
+    {% include "footer.html" %}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
