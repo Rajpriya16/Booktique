@@ -149,7 +149,3 @@ CACHES = {
 # Backend for the admin (database-backed)
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 SESSION_COOKIE_NAME = 'frontend_sessionid'
-
-#admin- rajpriya Asdf1234@
-#user ishu Asdf1234@
-#user goldi Asdf1234@
